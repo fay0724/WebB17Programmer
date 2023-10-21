@@ -1,0 +1,26 @@
+1. Judul Algoritma:
+   Menghitung Luas dan Keliling Lingkaran
+
+2. Input yang Diperlukan:
+   - Panjang jari-jari lingkaran (r)
+
+3. Langkah Kalkulasi:
+   a. Deklarasi variabel phi (π) dan r (panjang jari-jari lingkaran).
+   b. Menghitung luas lingkaran:
+      - luas = π * r * r
+   c. Menghitung keliling lingkaran:
+      - keliling = 2 * π * r
+
+4. Instruksi untuk Menampilkan Hasil Kalkulasi:
+   a. Tampilkan hasil perhitungan luas lingkaran ke layar.
+   b. Tampilkan hasil perhitungan keliling lingkaran ke layar.
+
+5. Hasil:
+   - Membuat algoritma untuk menghitung luas dan keliling lingkaran.
+   - Menggunakan variabel phi (π), r, luas, dan keliling.
+   - Menghitung luas dan keliling lingkaran sesuai rumus yang diberikan.
+   - Menampilkan hasil perhitungan luas dan keliling lingkaran menggunakan console atau perangkat keluaran yang sesuai.
+
+   Contoh hasil kalkulasi:
+   Luas Lingkaran: [nilai luas]
+   Keliling Lingkaran: [nilai keliling]

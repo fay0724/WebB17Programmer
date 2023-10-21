@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Paprika&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  background-color: aliceblue;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+nav {
+  background-image: url(nav.jpg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+.logo img {
+  width: 70px;
+  /* padding-left: 25px; */
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 20px 12px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: wheat;
+  text-transform: uppercase;
+  padding: 6px;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+nav ul li a:hover {
+  transform: scale(1.05);
+}
+
+section {
+  margin: 20px;
+}
+
+form {
+  background-image: url(form.jpg);
+  background-position: center;
+  color: white;
+  background-size: cover;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 5px;
+  border-color: black;
+  color: white;
+  background-color: transparent;
+}
+
+form input[type="submit"] {
+  margin: 0;
+  background-color: green;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* tambahkan CSS untuk section profile disini */
+.profile {
+  /* background-color: white; */
+  display: flex;
+  background-image: url(profile.jpg);
+  background-size: cover;
+}
+
+#profile {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.profile-text h2 {
+  font-size: 15px;
+  color: rgb(217, 246, 150);
+}
+
+.profile-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px orange solid;
+}
+
+#profile .profile-text {
+  padding: 0 25px 0 25px;
+  margin-top: -50px;
+}
+
+.action button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.profile .action .right {
+  background-color: white;
+  color: green;
+  border: 2px solid green;
+  border-radius: 15px;
+  padding: 16px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.action button:hover {
+  background-color: #0056b3;
+}
+
+#detail table td,
+#detail table th {
+  padding: 15px;
+}
+
+.table-bold {
+  font-weight: 700;
+}

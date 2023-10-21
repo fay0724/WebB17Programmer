@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kalkulator Lingkaran</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #container {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            input {
+                padding: 5px;
+                margin: 5px;
+            }
+
+            button {
+                padding: 5px 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            #hasil {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Kalkulator Lingkaran</h1>
+            <label for="jari-jari">Panjang Jari-Jari Lingkaran:</label>
+            <input
+                type="number"
+                id="jari-jari"
+                placeholder="Masukkan panjang jari-jari"
+            />
+            <button onclick="hitung()">Hitung</button>
+            <div id="hasil"></div>
+        </div>
+
+        <script>
+            function hitung() {
+                let r = parseFloat(document.getElementById("jari-jari").value)
+                let phi = 3.14
+                let luas, keliling
+
+                luas = phi * r * r
+                keliling = 2 * phi * r
+
+                let hasil = `Luas Lingkaran: ${luas}<br>Keliling Lingkaran: ${keliling}`
+                document.getElementById("hasil").innerHTML = hasil
+            }
+        </script>
+    </body>
+</html>

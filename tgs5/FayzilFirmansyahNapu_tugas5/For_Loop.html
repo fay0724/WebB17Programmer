@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            margin: 25px;
+        }
+
+        .judul{
+            margin: auto;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #textInput {
+            margin-left: 39px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        ol {
+            width: 376px;
+            margin: auto;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .dot-spinner {
+            --uib-size: 40px;
+            --uib-speed: 0.9s;
+            --uib-color: black;
+
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: var(--uib-size);
+            width: var(--uib-size);
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .dot-spinner__dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            width: 100%;
+        }
+
+        .dot-spinner__dot::before {
+            content: "";
+            height: 20%;
+            width: 20%;
+            border-radius: 50%;
+            background-color: var(--uib-color);
+            transform: scale(0);
+            opacity: 0.5;
+            animation: pulse calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+        }
+
+        .dot-spinner__dot:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .dot-spinner__dot:nth-child(2)::before {
+            animation-delay: calc(var(--uib-speed) * -0.875);
+        }
+
+        .dot-spinner__dot:nth-child(3) {
+            transform: rotate(90deg);
+        }
+
+        .dot-spinner__dot:nth-child(3)::before {
+            animation-delay: calc(var(--uib-speed) * -0.75);
+        }
+
+        .dot-spinner__dot:nth-child(4) {
+            transform: rotate(135deg);
+        }
+
+        .dot-spinner__dot:nth-child(4)::before {
+            animation-delay: calc(var(--uib-speed) * -0.625);
+        }
+
+        .dot-spinner__dot:nth-child(5) {
+            transform: rotate(180deg);
+        }
+
+        .dot-spinner__dot:nth-child(5)::before {
+            animation-delay: calc(var(--uib-speed) * -0.5);
+        }
+
+        .dot-spinner__dot:nth-child(6) {
+            transform: rotate(225deg);
+        }
+
+        .dot-spinner__dot:nth-child(6)::before {
+            animation-delay: calc(var(--uib-speed) * -0.375);
+        }
+
+        .dot-spinner__dot:nth-child(7) {
+            transform: rotate(270deg);
+        }
+
+        .dot-spinner__dot:nth-child(7)::before {
+            animation-delay: calc(var(--uib-speed) * -0.25);
+        }
+
+        .dot-spinner__dot:nth-child(8) {
+            transform: rotate(315deg);
+        }
+
+        .dot-spinner__dot:nth-child(8)::before {
+            animation-delay: calc(var(--uib-speed) * -0.125);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .reset-button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="judul">For Loop</h1>
+    </div>
+    <label>Pesan:</label>
+    <input id="textInput" type="text" />
+    <br />
+    <label>Berapa Kali:</label>
+    <input id="numberInput" type="number" />
+    <br />
+    <div class="button-container">
+        <button onclick="ForLoop()">Cetak!</button>
+        <button class="reset-button" onclick="ConfirmResetResults()">Hapus</button>
+    </div>
+    
+    <ol id="listOutput"></ol>
+
+    <div class="dot-spinner" id="loadingSpinner">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class "dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+    </div>
+
+    <script>
+        function ForLoop() {
+            const textInput = document.getElementById("textInput").value;
+            const numberInput = document.getElementById("numberInput").value;
+            const listOutput = document.getElementById("listOutput");
+            const loadingSpinner = document.getElementById("loadingSpinner");
+
+            if (textInput.trim() === "" || numberInput.trim() === "") {
+                alert("Isi field");
+                return;
+            }
+
+            loadingSpinner.style.opacity = 1;
+
+            setTimeout(() => {
+                let i = 0;
+                for (let j = 0; j < numberInput; j++) {
+                        listOutput.innerHTML += `<li>${textInput}</li>`
+                    }
+
+                loadingSpinner.style.opacity = 0;
+
+                document.getElementById("textInput").value = "";
+                document.getElementById("numberInput").value = "";
+            }, 1000);
+        }
+        
+        function ConfirmResetResults() {
+    const listOutput = document.getElementById("listOutput");
+
+    listOutput.innerHTML.trim() !== ""
+        ? (confirm("Hapus?") ? (listOutput.innerHTML = "") : null)
+        : alert("Result kosong");
+}
+
+    </script>
+</body>
+</html>
